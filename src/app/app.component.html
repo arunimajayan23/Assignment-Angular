@@ -1,0 +1,47 @@
+<div >
+  <div class="row">
+    <app-nav></app-nav>
+  </div>
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-6 mx-auto m-5" >
+          <div class="card" style="border:2px solid #337ab7;">
+            <span class="card-header text-white" style="background-color: #337ab7;">Car Ride Registration Form</span>
+            <div class="card-body">
+              <form class="fw-semibold" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" formControlName="name">
+                  <div *ngIf="contactForm.get('name').invalid && contactForm.get('name').touched" class="bg-white text-danger">Enter Name First</div>
+                </div>
+                <div class="mb-3">
+                  <label for="startlocation" class="form-label">Start Location</label>
+                  <input type="text" class="form-control" id="startlocation" formControlName="startlocation">
+                  <div *ngIf="contactForm.get('startlocation').invalid && contactForm.get('startlocation').touched" class="bg-white text-danger">Enter Start Location First</div>
+                </div>
+                <div class="mb-3">
+                  <label for="destination" class="form-label">Destination</label>
+                  <input type="text" class="form-control" id="destination" formControlName="destination">
+                  <div *ngIf="contactForm.get('destination').invalid && contactForm.get('destination').touched" class="bg-white text-danger">Enter Destination First</div>
+                </div>
+                <div class="mb-3">
+                  <label for="car" class="form-label">Car</label>
+                  <input type="text" class="form-control" id="car" formControlName="car">
+                  <div *ngIf="contactForm.get('car').invalid && contactForm.get('car').touched" class="bg-white text-danger">Enter Car First</div>
+                </div>
+                <div class="mb-3">
+                  <label for="seatsavailable" class="form-label">Seats Available</label>
+                  <input type="number" class="form-control" id="seatsavailable" formControlName="seatsavailable">
+                  <div *ngIf="contactForm.get('seatsavailable').invalid && contactForm.get('seatsavailable').touched" class="bg-white text-danger">Seats should be greater than 0 and less than 8 </div>
+                </div>
+                <button type="submit" class="btn m-2 text-white" style="background-color: #337ab7;" [disabled]="contactForm.invalid">Submit</button>
+                <button type="reset" class="btn text-white" style="background-color: #337ab7;">Go Back</button>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+  
+  </div>
+</div>
